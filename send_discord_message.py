@@ -1,44 +1,35 @@
-import discord
 import os
-import asyncio
+import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-# Carregar variáveis do arquivo .env
+# Carregar variáveis de ambiente (não será necessário se estiver usando o GitHub Actions diretamente)
 load_dotenv()
 
-# Definir as variáveis de ambiente
-TOKEN = os.getenv('DISCORD_BOT_TOKEN')  # Token do bot
-CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))  # Canal via variável de ambiente
+# Pegando os valores das variáveis do ambiente (GitHub Secrets)
+TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))
 
-# Configurar intents
+# Verificar se as variáveis foram carregadas corretamente
+if not TOKEN or not CHANNEL_ID:
+    raise ValueError("As variáveis de ambiente DISCORD_BOT_TOKEN ou DISCORD_CHANNEL_ID não foram encontradas.")
+
+# Configurar o bot
 intents = discord.Intents.default()
-intents.message_content = True
-
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
     print(f'Bot {bot.user} está online!')
+    channel = bot.get_channel(CHANNEL_ID)
+    if channel:
+        try:
+            await channel.send('Olá! Esta é uma mensagem automatizada do GitHub Actions.')
+            print(f'Mensagem enviada para o canal {channel.name}.')
+        except Exception as e:
+            print(f'Erro ao enviar mensagem: {e}')
+    else:
+        print('Canal não encontrado.')
 
-    try:
-        # Obter o canal
-        print(f"Tentando encontrar o canal com ID {CHANNEL_ID}...")
-        channel = bot.get_channel(CHANNEL_ID)
-        if channel:
-            print(f"Canal encontrado: {channel.name}. Enviando mensagem...")
-            await channel.send("Lembrete diário: Não se esqueça de realizar sua tarefa!")
-            print("Mensagem enviada com sucesso!")
-        else:
-            print(f"Canal com ID {CHANNEL_ID} não foi encontrado.")
-    except Exception as e:
-        print(f"Erro ao enviar mensagem: {e}")
-    finally:
-        print("Encerrando bot...")
-        await bot.close()
-
-if __name__ == "__main__":
-    print("Iniciando bot...")
-    print(f"DISCORD_BOT_TOKEN: {TOKEN[:5]}********")
-    print(f"DISCORD_CHANNEL_ID: {CHANNEL_ID}")
-    asyncio.run(bot.start(TOKEN))
+# Iniciar o bot
+bot.run(TOKEN)
