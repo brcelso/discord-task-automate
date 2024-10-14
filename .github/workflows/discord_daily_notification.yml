@@ -2,7 +2,7 @@ name: Daily Discord Notification
 
 on:
   schedule:
-    - cron: "0 12 * * *"  
+    - cron: "0 12 * * *"  # Executa diariamente às 9h de Brasília (12h UTC)
   workflow_dispatch:
 
 jobs:
@@ -11,17 +11,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Usar a versão mais recente do checkout
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'  # Usar a versão mais recente do Python
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install discord.py python-dotenv
+
       - name: Run Discord notification script
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
