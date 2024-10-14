@@ -25,6 +25,10 @@ async def on_ready():
 async def enviar_mensagem():
     channel = bot.get_channel(CHANNEL_ID)
     if channel:
-        await channel.send("Lembrete diário: Não esqueça de realizar sua tarefa!")
+        await channel.send("Lembrete diário: Não esqueça de realizar sua tarefa!")  # Mensagem corrigida
     else:
-        print("Canal não
+        print("Canal não encontrado.")
+
+# Iniciar o bot e o loop principal
+if __name__ == "__main__":
+    asyncio.run(bot.start(TOKEN))
