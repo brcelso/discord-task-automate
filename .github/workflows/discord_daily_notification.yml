@@ -2,7 +2,7 @@ name: Daily Discord Notification
 
 on:
   schedule:
-    - cron: "25 15 * * *"  # Executar diariamente às 16:15 UTC (13:15 no horário de Brasília)
+    - cron: "*/5 * * * *"  
   workflow_dispatch:
 
 jobs:
