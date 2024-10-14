@@ -26,6 +26,7 @@ jobs:
       - name: Run Discord notification script
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-          DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+          DISCORD_CHANNEL_ID_1: ${{ secrets.DISCORD_CHANNEL_ID_1 }}  # Canal 1
+          DISCORD_CHANNEL_ID_2: ${{ secrets.DISCORD_CHANNEL_ID_2 }}  # Canal 2
         run: |
           python send_discord_message.py
