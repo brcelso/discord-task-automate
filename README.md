@@ -1,34 +1,34 @@
-# Notificação Diária no Discord
+# Daily Discord Notification
 
-Este projeto tem como objetivo enviar uma notificação diária para um canal do Discord utilizando um bot. A notificação é programada para ser enviada automaticamente todos os dias em um horário específico.
+This project aims to send a daily notification to a Discord channel using a bot. The notification is scheduled to be sent automatically every day at a specific time.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **Python**: Linguagem de programação utilizada para criar o script do bot.
-- **Discord.py**: Biblioteca para interagir com a API do Discord.
-- **GitHub Actions**: Para automação do envio de mensagens em horários programados.
+- **Python**: Programming language used to create the bot script.
+- **Discord.py**: Library for interacting with the Discord API.
+- **GitHub Actions**: For automating the sending of messages on a scheduled basis.
 
-## Configuração
+## Setup
 
-### Pré-requisitos
+### Prerequisites
 
-Antes de executar o projeto, você precisa:
+Before running the project, you need to:
 
-1. Ter uma conta no Discord.
-2. Criar um bot no Discord e obter o token de autenticação.
-3. Adicionar o bot ao seu servidor.
-4. Criar um canal onde as notificações serão enviadas.
+1. Have a Discord account.
+2. Create a bot on Discord and obtain the authentication token.
+3. Add the bot to your server.
+4. Create a channel where the notifications will be sent.
 
-### Variáveis de Ambiente
+### Environment Variables
 
-Você deve configurar as seguintes variáveis de ambiente no GitHub Actions:
+You should configure the following environment variables in GitHub Actions:
 
-- `DISCORD_BOT_TOKEN`: Token do bot do Discord.
-- `DISCORD_CHANNEL_ID`: ID do canal do Discord onde as notificações serão enviadas.
+- `DISCORD_BOT_TOKEN`: Token of the Discord bot.
+- `DISCORD_CHANNEL_ID`: ID of the Discord channel where the notifications will be sent.
 
-### Instalação das Dependências
+### Installing Dependencies
 
-As dependências necessárias podem ser instaladas utilizando o `pip`. Execute os seguintes comandos:
+The required dependencies can be installed using `pip`. Run the following commands:
 
 ```bash
 pip install discord.py python-dotenv
