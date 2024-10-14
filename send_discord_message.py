@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-# Carregar variáveis de ambiente (não será necessário se estiver usando o GitHub Actions diretamente)
+# Carregar variáveis de ambiente
 load_dotenv()
 
 # Pegando os valores das variáveis do ambiente (GitHub Secrets)
@@ -24,12 +24,15 @@ async def on_ready():
     channel = bot.get_channel(CHANNEL_ID)
     if channel:
         try:
-            await channel.send('Olá! Esta é uma mensagem automatizada do GitHub Actions.')
+            await channel.send('Olá! Lembre-se de dar comida para os Dogs!')
             print(f'Mensagem enviada para o canal {channel.name}.')
         except Exception as e:
             print(f'Erro ao enviar mensagem: {e}')
     else:
         print('Canal não encontrado.')
+
+    # Encerrar o bot após enviar a mensagem
+    await bot.close()
 
 # Iniciar o bot
 bot.run(TOKEN)
