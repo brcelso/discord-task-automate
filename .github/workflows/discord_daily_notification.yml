@@ -2,7 +2,7 @@ name: Daily Discord Notification
 
 on:
   schedule:
-    - cron: "0 12 * * *"  
+    - cron: "0 12 * * *"  # Executa diariamente às 9h de Brasília (12h UTC)
   workflow_dispatch:
 
 jobs:
@@ -12,11 +12,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          node-version: '20'  # Usa Node.js 20
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+          node-version: '20'  # Usa Node.js 20
 
       - name: Install dependencies
         run: |
