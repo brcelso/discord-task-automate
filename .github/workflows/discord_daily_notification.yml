@@ -2,7 +2,7 @@ name: Daily Discord Notification
 
 on:
   schedule:
-    - cron: "15 16 * * *"  # Executar diariamente às 16:15 UTC (13:15 no horário de Brasília)
+    - cron: "10 16 * * *"  # Executar diariamente às 16:15 UTC (13:15 no horário de Brasília)
 
 jobs:
   send-discord-message:
