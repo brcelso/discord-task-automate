@@ -9,7 +9,7 @@ CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))  # Canal via variável de ambi
 
 # Inicializar o bot
 intents = discord.Intents.default()
-intents.message_content = True
+intents.message_content = True  # Habilitar a intent de conteúdo da mensagem
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
@@ -25,7 +25,7 @@ async def on_ready():
 async def enviar_mensagem():
     channel = bot.get_channel(CHANNEL_ID)
     if channel:
-        await channel.send("Lembrete diário: Não esqueça de realizar sua tarefa!")  # Mensagem corrigida
+        await channel.send("Lembrete diário: Não esqueça de realizar sua tarefa!")
     else:
         print("Canal não encontrado.")
 
