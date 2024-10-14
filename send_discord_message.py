@@ -1,5 +1,6 @@
 import discord
 import os
+import asyncio
 from discord.ext import commands
 
 # Configurações do bot
@@ -15,14 +16,15 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'Bot {bot.user.name} está online!')
 
-# Função para enviar a mensagem
+    # Enviar mensagem ao canal
+    await enviar_mensagem()
+
+    # Fechar o bot após enviar a mensagem
+    await bot.close()
+
 async def enviar_mensagem():
     channel = bot.get_channel(CHANNEL_ID)
     if channel:
         await channel.send("Lembrete diário: Não esqueça de realizar sua tarefa!")
-    await bot.close()
-
-# Iniciar o bot e enviar a mensagem
-if __name__ == "__main__":
-    bot.loop.create_task(enviar_mensagem())
-    bot.run(TOKEN)
+    else:
+        print("Canal não
