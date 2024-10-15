@@ -27,7 +27,7 @@ async def on_ready():
     channel_1 = bot.get_channel(CHANNEL_ID_1)
     if channel_1:
         try:
-            await channel_1.send('Olá! Lembre-se de dar comida para os Dogs, Treino da Re e Tira o foco!')
+            await channel_1.send('Olá! Lembre-se de dar comida para os Dogs, Treino da Re, Treino Spy e Tira o foco!')
             print(f'Mensagem enviada para o canal {channel_1.name}.')
         except Exception as e:
             print(f'Erro ao enviar mensagem para o canal {channel_1.name}: {e}')
@@ -38,7 +38,7 @@ async def on_ready():
     channel_2 = bot.get_channel(CHANNEL_ID_2)
     if channel_2:
         try:
-            await channel_2.send('Olá! Lembre-se de dar comida para os Dogs, Treino da Re e Tira o Foco!')
+            await channel_2.send('Olá! Lembre-se de dar comida para os Dogs, Treino da Re, Treino Spy e Tira o Foco!')
             print(f'Mensagem enviada para o canal {channel_2.name}.')
         except Exception as e:
             print(f'Erro ao enviar mensagem para o canal {channel_2.name}: {e}')
