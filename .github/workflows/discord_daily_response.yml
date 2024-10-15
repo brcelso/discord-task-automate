@@ -1,4 +1,4 @@
-name: Daily Discord Notification
+name: Daily Discord Response
 
 on:
   schedule:
@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install discord.py python-dotenv
 
-      - name: Run Discord notification script
+      - name: Run Discord response script
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CHANNEL_ID_1: ${{ secrets.DISCORD_CHANNEL_ID_1 }}  # Canal 1
