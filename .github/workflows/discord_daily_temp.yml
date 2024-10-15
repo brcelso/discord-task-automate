@@ -1,0 +1,30 @@
+name: Daily Discord Temp
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send-discord-temp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Usar a versão mais recente do checkout
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # Usar a versão mais recente do Python
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install discord.py python-dotenv
+
+      - name: Run Discord temp script
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_CHANNEL_ID_1: ${{ secrets.DISCORD_CHANNEL_ID_1 }}  # Canal 1
+          DISCORD_CHANNEL_ID_2: ${{ secrets.DISCORD_CHANNEL_ID_2 }}  # Canal 2
+        run: |
+          python send_discord_temp.py
