@@ -2,7 +2,9 @@ name: Daily Discord Notification
 
 on:
   schedule:
-    - cron: "0 12 * * *"  # Executa diariamente às 9h de Brasília (12h UTC)
+    # 12h e 18h horário de Brasília (UTC-3)
+    - cron: "00 15 * * *" # 12h Brasília
+    - cron: "00 21 * * *" # 18h Brasília
   workflow_dispatch:
 
 jobs:
