@@ -1,11 +1,10 @@
-name: Daily Discord Response
+name: Daily Discord Notification
 
 on:
-  schedule:
   workflow_dispatch:
 
 jobs:
-  send-discord-response:
+  send-discord-message:
     runs-on: ubuntu-latest
 
     steps:
