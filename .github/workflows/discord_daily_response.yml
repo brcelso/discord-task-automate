@@ -1,4 +1,4 @@
-name: Daily Discord Notification
+name: Daily Discord Response
 
 on:
   workflow_dispatch:
