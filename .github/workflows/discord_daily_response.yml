@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  send-discord-message:
+  send-discord-response:
     runs-on: ubuntu-latest
 
     steps:
