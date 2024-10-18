@@ -27,7 +27,7 @@ async def on_ready():
     channel_1 = bot.get_channel(CHANNEL_ID_1)
     if channel_1:
         try:
-            await channel_1.send('Olá! \nLembre-se de dar comida para os Dogs, \nTreino da Re, \nTreino Spy e \nTira o foco, \nLavar Carro Sexta 08h, \nImprimir material ET!')
+            await channel_1.send('Olá! \nLembre-se de dar comida para os Dogs, \nTreino da Re, \nTreino Spy e \nTira o foco, \nImprimir material ET!')
             print(f'Mensagem enviada para o canal {channel_1.name}.')
         except Exception as e:
             print(f'Erro ao enviar mensagem para o canal {channel_1.name}: {e}')
